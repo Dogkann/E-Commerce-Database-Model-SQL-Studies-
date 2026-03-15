@@ -1,0 +1,359 @@
+/* Genel Ayarlar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: #f4f7f6;
+    height: 100vh;
+}
+
+/* Yan Menü (Sidebar) Tasarımı */
+.sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #3498db;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.sidebar ul li:hover {
+    background-color: #34495e;
+    cursor: pointer;
+}
+
+/* Ana İçerik Alanı */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* Butonlar */
+.btn-add {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-edit {
+    background-color: #f39c12;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* Tablo Tasarımı */
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+/* İstatistik Kartları Tasarımı */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card i {
+    font-size: 30px;
+    color: #f39c12;
+}
+
+.stat-card.blue i { color: #3498db; }
+.stat-card.green i { color: #2ecc71; }
+
+.stat-card h3 {
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+.stat-card p {
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+/* Tablo Başlığı */
+.table-container h2 {
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+/* İşlem Butonları Geliştirme */
+.btn-edit {
+    transition: opacity 0.3s;
+}
+
+.btn-edit:hover {
+    opacity: 0.8;
+}
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.btn-delete:hover {
+    background-color: #c0392b;
+}
+/* Modal (Arka Plan) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal İçeriği */
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close {
+    position: absolute; right: 20px; top: 10px;
+    font-size: 28px; cursor: pointer;
+}
+
+#addForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.btn-save {
+    width: 100%;
+    padding: 10px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.table-header {
+    display: flex;
+    justify-content: space-between; /* Birini en sola, diğerini en sağa iter */
+    align-items: center; /* Dikeyde ortalar */
+    margin-bottom: 20px;
+}
+
+.table-header h2 {
+    margin-bottom: 0; /* Eskiden kalan alt boşluğu sıfırladık */
+}
+
+/* Arama Kutusu Tasarımı */
+.search-container {
+    position: relative;
+    width: 300px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 10px 15px 10px 35px; /* Sol tarafta ikon için boşluk bıraktık */
+    border: 1px solid #dcdde1;
+    border-radius: 20px;
+    outline: none;
+    font-size: 14px;
+    transition: all 0.3s ease; /* Tıklayınca yumuşak bir geçiş olsun */
+}
+
+/* Arama kutusuna tıklanınca kenarlığı mavi olsun */
+.search-container input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.search-container i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%); /* İkonu tam dikey olarak ortalar */
+    color: #95a5a6;
+}
+/* Aktif Menü Elemanı Tasarımı */
+.sidebar ul li.active {
+    background-color: #3498db; /* Mavi arka plan */
+    border-radius: 5px; /* Kenarları hafif yumuşat */
+}
+
+.sidebar ul li.active a {
+    font-weight: bold; /* Yazıyı kalınlaştır */
+}
+/* --- Lojin Sayfası Tasarımı --- */
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c3e50; /* Havalı koyu lacivert bir arka plan */
+}
+
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    width: 350px;
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #3498db;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+}
+/* --- Register (Kayıt) Sayfası Ekstraları --- */
+.btn-register {
+    width: 100%;
+    padding: 12px;
+    background-color: #2ecc71; /* Yeşil renk */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #27ae60;
+}
+
+.form-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.form-footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}

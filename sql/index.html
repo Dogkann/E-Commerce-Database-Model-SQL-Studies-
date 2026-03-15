@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret Admin Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="productModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Yeni Ürün Ekle</h2>
+        <form id="addForm">
+            <input type="text" id="pName" placeholder="Ürün Adı" required>
+            <input type="text" id="pCategory" placeholder="Kategori" required>
+            <input type="number" id="pPrice" placeholder="Fiyat (TL)" required>
+            <input type="number" id="pStock" placeholder="Stok Adedi" required>
+            <button type="submit" class="btn-save">Kaydet</button>
+        </form>
+    </div>
+    </div>
+
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <ul>
+            <li><a href="#" onclick="alert('Dashboard ekranı yapım aşamasında! 🚧')"><i class="fas fa-home"></i> Dashboard</a></li>
+            
+            <li class="active"><a href="#"><i class="fas fa-box"></i> Ürünler</a></li>
+            
+            <li><a href="#" onclick="alert('Kategoriler ekranı yapım aşamasında! 🚧')"><i class="fas fa-tags"></i> Kategoriler</a></li>
+            
+            <li><a href="#" onclick="alert('Siparişler ekranı yapım aşamasında! 🚧')"><i class="fas fa-shopping-cart"></i> Siparişler</a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="user-info">
+                <span>Hoş geldin, <strong>Arif</strong></span>
+            </div>
+            <button class="btn-add"><i class="fas fa-plus"></i> Yeni Ürün Ekle</button>
+        </header>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <i class="fas fa-shopping-cart"></i>
+                <div>
+                    <h3>125</h3>
+                    <p>Bugünkü Sipariş</p>
+                </div>
+            </div>
+            <div class="stat-card blue">
+                <i class="fas fa-wallet"></i>
+                <div>
+                    <h3>₺45.250</h3>
+                    <p>Günlük Kazanç</p>
+                </div>
+            </div>
+            <div class="stat-card green">
+                <i class="fas fa-boxes"></i>
+                <div>
+                    <h3>1.205</h3>
+                    <p>Toplam Stok</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <h2><i class="fas fa-list"></i> Stoktaki Ürünler</h2>
+        <div class="search-container">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" onkeyup="tabloAra()" placeholder="Ürün adı veya kategori ara...">
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ürün Adı</th>
+                        <th>Kategori</th>
+                        <th>Fiyat</th>
+                        <th>Stok</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Oyuncu Laptop</td>
+                        <td>Elektronik</td>
+                        <td>35.000 TL</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn-edit" onclick="urunDuzenle(this)"><i class="fas fa-edit"></i> Düzenle</button>
+                            <button class="btn-delete" onclick="urunSil(this)"><i class="fas fa-trash"></i> Sil</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Akıllı Telefon</td>
+                        <td>Elektronik</td>
+                        <td>22.000 TL</td>
+                        <td>25</td>
+                        <td>
+                            <button class="btn-edit" onclick="urunDuzenle(this)"><i class="fas fa-edit"></i> Düzenle</button>
+                            <button class="btn-delete" onclick="urunSil(this)"><i class="fas fa-trash"></i> Sil</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
